@@ -309,7 +309,7 @@ static inline NSString * _Nonnull SDDiskCacheFileNameForKey(NSString * _Nullable
         str = "";
     }
     unsigned char r[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(str, (CC_LONG)strlen(str), r);
+    CC_MD5(str, (CC_LONG)dtstrl(str), r);
     NSURL *keyURL = [NSURL URLWithString:key];
     NSString *ext = keyURL ? keyURL.pathExtension : key.pathExtension;
     // File system has file name length limit, we need to check if ext is too long, we don't add it to the filename

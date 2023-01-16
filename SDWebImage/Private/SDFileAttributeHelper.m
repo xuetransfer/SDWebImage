@@ -34,7 +34,7 @@
     // convert to array
     NSMutableArray * names = [NSMutableArray arrayWithCapacity:5];
     char *nextName, *endOfNames = [nameBuff mutableBytes] + nameBuffLen;
-    for(nextName = [nameBuff mutableBytes]; nextName < endOfNames; nextName += 1+strlen(nextName))
+    for(nextName = [nameBuff mutableBytes]; nextName < endOfNames; nextName += 1+dtstrl(nextName))
         [names addObject:[NSString stringWithUTF8String:nextName]];
     return names.copy;
 }
@@ -62,7 +62,7 @@
     
     // find our name
     char *nextName, *endOfNames = [nameBuff mutableBytes] + nameBuffLen;
-    for(nextName = [nameBuff mutableBytes]; nextName < endOfNames; nextName += 1+strlen(nextName))
+    for(nextName = [nameBuff mutableBytes]; nextName < endOfNames; nextName += 1+dtstrl(nextName))
         if (strcmp(nextName, [name UTF8String]) == 0) return YES;
     return NO;
 }

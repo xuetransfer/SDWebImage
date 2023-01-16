@@ -7,6 +7,17 @@
 
 #import <Foundation/Foundation.h>
 
+static inline unsigned int dtstrl(const char *s)
+{
+    unsigned int count = 0;
+    while(*s!='\0')
+    {
+        count++;
+        s++;
+    }
+    return count;
+}
+
 /// File Extended Attribute (xattr) helper methods
 @interface SDFileAttributeHelper : NSObject
 
